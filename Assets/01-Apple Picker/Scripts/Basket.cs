@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using TMPro;
 
 public class Basket : MonoBehaviour
 {
-
+    public TextMeshProUGUI CountText;
+    private int count;
     void Update()
     {
         // Get the current screen position of the mouse from Input
@@ -20,13 +22,31 @@ public class Basket : MonoBehaviour
         pos.x = mousePos3D.x;
         this.transform.position = pos;
     }
+    void Start()
+    {
+        count = 0;
+
+        SetCountText();
+    }
+
+
+    void SetCountText()
+    {
+        CountText.text = "Count: " + count.ToString();
+    }
+
     void OnCollisionEnter(Collision coll)
     { // 2
       // Find out what hit this basket
         GameObject collidedWith = coll.gameObject; // 3
+
         if (collidedWith.tag == "Apple")
         { // 4
             Destroy(collidedWith);
+            count = count + 1;
+
+            // Run the 'SetCountText()' function (see below)
+            SetCountText();
         }
     }
 }
