@@ -1,11 +1,23 @@
-﻿using UnityEngine;
-using System.Collections;
-using TMPro;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
 
 public class Basket : MonoBehaviour
 {
-    public TextMeshProUGUI CountText;
-    private int count;
+    [Header("Set Dynamically")]
+    public Text scoreGT; // a
+    void Start()
+    {
+        // Find a reference to the ScoreCounter GameObject
+        GameObject scoreGO = GameObject.Find("ScoreCounter"); // b
+                                                              // Get the Text Component of that GameObject
+        scoreGT = scoreGO.GetComponent<Text>(); // c
+                                                // Set the starting number of points to 0
+        scoreGT.text = "0";
+    }
+
     void Update()
     {
         // Get the current screen position of the mouse from Input
@@ -22,18 +34,8 @@ public class Basket : MonoBehaviour
         pos.x = mousePos3D.x;
         this.transform.position = pos;
     }
-    void Start()
-    {
-        count = 0;
 
-        SetCountText();
-    }
-
-
-    void SetCountText()
-    {
-        CountText.text = "Count: " + count.ToString();
-    }
+ 
 
     void OnCollisionEnter(Collision coll)
     { // 2
@@ -42,11 +44,17 @@ public class Basket : MonoBehaviour
 
         if (collidedWith.tag == "Apple")
         { // 4
-            Destroy(collidedWith);
-            count = count + 1;
 
-            // Run the 'SetCountText()' function (see below)
-            SetCountText();
+            Destroy(collidedWith);
+            int score = int.Parse(scoreGT.text); // d
+                                                 // Add points for catching the apple
+            score += 100;
+            // Convert the score back to a string and display it
+            scoreGT.text = score.ToString();
+
         }
+
+
     }
 }
+
