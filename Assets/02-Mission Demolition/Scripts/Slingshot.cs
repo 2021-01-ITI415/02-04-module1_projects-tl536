@@ -21,7 +21,6 @@ public class Slingshot : MonoBehaviour
     }
     void OnMouseEnter()
     {
-        
         launchPoint.SetActive(true); 
     }
     void OnMouseExit()
@@ -69,6 +68,7 @@ float maxMagnitude = this.GetComponent<SphereCollider>().radius;
             aimingMode = false;
             projectileRigidbody.isKinematic = false;
             projectileRigidbody.velocity = -mouseDelta * velocityMult;
+            FollowCam.POI = projectile;
             projectile = null;
         }
     }
