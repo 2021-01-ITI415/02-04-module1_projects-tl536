@@ -29,5 +29,7 @@ Vector3 destination = POI.transform.position;
         destination.z = camZ;
         // Set the camera to the destination
         transform.position = destination;
+        Camera.main.orthographicSize = destination.y + 10;
+
     }
 }
