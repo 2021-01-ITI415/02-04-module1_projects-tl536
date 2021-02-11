@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 369675299}
   - component: {fileID: 369675298}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -740,4 +740,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07d4b45c909b1c4d926f54dc8cb0c06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  launchPoint: {fileID: 1202553701}
+  prefabProjectile: {fileID: 9172303143627875747, guid: 6f18687ca71dfb64888da91326a65aba, type: 3}
+  velocityMult: 8
+  launchPos: {x: 0, y: 0, z: 0}
+  projectile: {fileID: 0}
+  aimingMode: 0
+  launchPoint: {fileID: 0}
