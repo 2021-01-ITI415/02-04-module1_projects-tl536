@@ -16,10 +16,7 @@ public float camZ;
     void FixedUpdate()
     {
 
-      //  if (POI == null) return; 
 
-    // Get the position of the poi
-//Vector3 destination = POI.transform.position;
         Vector3 destination;
         // If there is no poi, return to P:[ 0, 0, 0 ]
         if (POI == null)
