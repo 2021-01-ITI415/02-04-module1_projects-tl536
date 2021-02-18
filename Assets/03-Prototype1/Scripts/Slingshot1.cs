@@ -4,7 +4,7 @@ public class Slingshot1 : MonoBehaviour
 {
     [Header("Set in Inspector")] 
     public GameObject prefabProjectile;
-    public float velocityMult = 8f;
+    public float velocityMult = 10f;
     public GameObject launchPoint;
     public Vector3 launchPos; // b
     public GameObject projectile; // b
