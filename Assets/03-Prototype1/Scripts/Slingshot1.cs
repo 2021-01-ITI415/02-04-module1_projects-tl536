@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 public class Slingshot1 : MonoBehaviour
 {
     [Header("Set in Inspector")] 
@@ -37,8 +38,8 @@ public class Slingshot1 : MonoBehaviour
         projectile.GetComponent<Rigidbody>().isKinematic = true;
 
         projectileRigidbody = projectile.GetComponent<Rigidbody>(); 
-        projectileRigidbody.isKinematic =
-        true; 
+        projectileRigidbody.isKinematic = true; 
+
     }
     void Update()
     {

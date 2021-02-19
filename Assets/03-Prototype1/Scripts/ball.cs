@@ -6,6 +6,7 @@ public class ball : MonoBehaviour
 {
     [Header("Set Dynamically")]
     public Text scoreGT;
+    public Text winGT;
     
 
     void Start()
@@ -14,7 +15,8 @@ public class ball : MonoBehaviour
                                                               // Get the Text Component of that GameObject
         scoreGT = scoreGO.GetComponent<Text>(); // c
                                                 // Set the starting number of points to 0
-        
+        GameObject winGO = GameObject.Find("Win");
+        winGT = winGO.GetComponent<Text>();
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -26,7 +28,14 @@ public class ball : MonoBehaviour
             score += 1;
             // Convert the score back to a string and display it
             scoreGT.text = score.ToString();
+            if (score == 8)
+            {
+                winGT.text = ("You Win!");
+            }
+
 
         }
+        
+
     }
 }
